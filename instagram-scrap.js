@@ -23,7 +23,15 @@ const { chromium } = require('playwright');
 
 async function scrapeProfile(handle, maxPosts = 6) {
 	const browser = await chromium.launch({ headless: true });
-	const context = await browser.newContext();
+	// Use a realistic browser context to reduce bot detection in CI
+	const userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
+	const context = await browser.newContext({
+		userAgent,
+		viewport: { width: 1280, height: 800 },
+		locale: 'en-US',
+		timezoneId: 'America/Los_Angeles',
+		extraHTTPHeaders: { 'accept-language': 'en-US,en;q=0.9' },
+	});
 	const page = await context.newPage();
 
 	const profileUrl = `https://www.instagram.com/${handle}/`;
@@ -31,9 +39,15 @@ async function scrapeProfile(handle, maxPosts = 6) {
 	await page.goto(profileUrl, { waitUntil: 'networkidle' });
 
 	// Small auto-scroll to load additional posts if necessary
-	for (let i = 0; i < 3; i++) {
+	try {
+		await page.waitForSelector('article', { timeout: 5000 });
+	} catch (e) {
+		// continue — we'll still try to collect anchors
+	}
+	for (let i = 0; i < 8; i++) {
 		await page.evaluate(() => window.scrollBy(0, window.innerHeight));
-		await page.waitForTimeout(500);
+		// slightly larger waits to let lazy images load in CI
+		await page.waitForTimeout(800 + Math.floor(Math.random() * 400));
 	}
 
 	// Try to collect posts directly from the profile grid (faster and more robust).
@@ -63,6 +77,21 @@ async function scrapeProfile(handle, maxPosts = 6) {
 	}
 
 	console.log(`Found ${uniqueGrid.length} posts in-grid, scraping up to ${maxPosts} posts...`);
+
+	// If nothing found in-grid, save debug HTML + screenshot to help diagnose CI runs
+	if (uniqueGrid.length === 0) {
+		try {
+			const debugDir = path.resolve(process.cwd(), 'debug');
+			fs.mkdirSync(debugDir, { recursive: true });
+			const ts = Date.now();
+			const html = await page.content();
+			fs.writeFileSync(path.join(debugDir, `page-${handle}-${ts}.html`), html);
+			await page.screenshot({ path: path.join(debugDir, `screenshot-${handle}-${ts}.png`), fullPage: true });
+			console.warn(`No posts found in-grid. Saved debug artifacts to ${debugDir}`);
+		} catch (err) {
+			console.warn('Failed to write debug artifacts:', err.message);
+		}
+	}
 
 	const results = [];
 
