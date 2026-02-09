@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="JA Online Coaching — Bespoke, data-driven fitness coaching made easy. Sustainable results through science-backed training and nutrition.">
+  <meta name="keywords" content="online fitness coaching, personal training, nutrition coaching, professional fitness, bespoke coaching, JA coaching">
+  <meta name="author" content="MasterCraft">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="JA Online Coaching | Elite Fitness Made Easy">
+  <meta property="og:description" content="Bespoke, data-driven fitness coaching designed to fit your schedule.">
+  <meta property="og:image" content="./assets/images/ja-logo.jpg">
+  <meta property="og:url" content="https://mastercraft.github.io/ja-online-coaching">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="JA Online Coaching">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JA Online Coaching | Elite Fitness Made Easy">
+  <meta name="twitter:description" content="Bespoke, data-driven fitness coaching designed to fit your schedule.">
+  <meta name="twitter:image" content="./assets/images/ja-logo.jpg">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="msapplication-TileColor" content="#0a0a0a">
+
+  <title>JA Online Coaching – Just Adapt | Find A Way.</title>
+
+  <!-- Favicon (placeholder paths for future use) -->
+  <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+
+  <!-- Favicon Manifest -->
+  <link rel="manifest" href="./assets/favicon/site.webmanifest">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Tailwind CSS v4 (Browser CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Tailwind v4 Theme Configuration & Custom Styles -->
+  <style type="text/tailwindcss">
+    @theme {
+      --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+      /* Brand Colors */
+      --color-brand: #ea580c;
+      --color-brand-light: #f97316;
+      --color-brand-dark: #c2410c;
+      --color-brand-glow: rgba(234, 88, 12, 0.4);
+
+      /* Surface Colors */
+      --color-surface-primary: #0a0a0a;
+      --color-surface-secondary: #111111;
+      --color-surface-card: #141414;
+      --color-surface-elevated: #1a1a1a;
+
+      /* Border Colors */
+      --color-border-subtle: rgba(255, 255, 255, 0.06);
+      --color-border-default: rgba(255, 255, 255, 0.10);
+      --color-border-hover: rgba(255, 255, 255, 0.15);
+
+      /* Text Colors */
+      --color-text-primary: #f5f5f5;
+      --color-text-secondary: #a3a3a3;
+      --color-text-tertiary: #737373;
+    }
+
+    /* ==========================================
+       Base & Smooth Scrolling
+       ========================================== */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem;
+    }
+
+    body {
+      background-color: #0a0a0a;
+      color: #f5f5f5;
+      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ==========================================
+       Custom Scrollbar
+       ========================================== */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+
+    /* ==========================================
+       Hero Entrance Animations
+       ========================================== */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.15; }
+      50% { opacity: 0.3; }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    @keyframes gradient-rotate {
+      0% { --angle: 0deg; }
+      100% { --angle: 360deg; }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    .animate-float-slow {
+      animation: float 8s ease-in-out infinite;
+    }
+    .animate-pulse-glow {
+      animation: pulse-glow 4s ease-in-out infinite;
+    }
+
+    /* Image shimmer loading effect */
+    .img-shimmer {
+      background: linear-gradient(90deg, #141414 25%, #1a1a1a 50%, #141414 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+
+    /* ==========================================
+       Scroll Reveal Animations
+       ========================================== */
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .scroll-animate.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================
+       Nav Link Underline Effect
+       ========================================== */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #ea580c;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      transform: scaleX(1);
+    }
+
+    /* ==========================================
+       Gradient Text Utility
+       ========================================== */
+    .text-gradient {
+      background: linear-gradient(135deg, #f5f5f5 0%, #a3a3a3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .text-gradient-brand {
+      background: linear-gradient(135deg, #ea580c 0%, #f97316 50%, #ea580c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ==========================================
+       Reduced Motion
+       ========================================== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .scroll-animate {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-surface-primary text-text-primary font-sans antialiased">
+
+  <!-- ==========================================
+       Skip to Main Content (Accessibility)
+       ========================================== -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-brand focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold focus:text-sm">
+    Skip to main content
+  </a>
+
+  <!-- ==========================================
+       NAVBAR — Sticky with Glass Effect on Scroll
+       ========================================== -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+
+        <!-- Logo — Matches brand: J in gray, A in white -->
+        <a href="#" class="flex items-center gap-2" aria-label="JA Online Coaching — Home">
+          <div class="flex flex-col leading-none">
+            <span class="text-2xl font-extrabold tracking-tight"><span class="text-gray-500">J</span><span class="text-white">A COACHING</span></span>
+            <span class="text-[8px] font-medium tracking-[0.2em] uppercase text-text-tertiary mt-0.5 hidden sm:block">Just Adapt | Find A Way</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#about" class="nav-link text-sm font-medium text-text-secondary hover:text-text-primary transition-colors duration-200">About</a>
+          <a href="#services" class="nav-link text-sm font-medium text-text-secondary hover:text-text-primary transition-colors duration-200">Services</a>
+          <a href="#insights" class="nav-link text-sm font-medium text-text-secondary hover:text-text-primary transition-colors duration-200">Insights</a>
+          <a href="https://ig.me/m/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="bg-brand text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-brand-light transition-all duration-200 hover:shadow-lg hover:shadow-brand-glow/50">
+            Join Now
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="menu-toggle" class="md:hidden relative w-10 h-10 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-surface-primary rounded-lg" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="block w-5 h-0.5 bg-text-primary transition-all duration-300 absolute" style="top: calc(50% - 5px)"></span>
+          <span class="block w-5 h-0.5 bg-text-primary transition-all duration-300 absolute" style="top: 50%; transform: translateY(-50%)"></span>
+          <span class="block w-5 h-0.5 bg-text-primary transition-all duration-300 absolute" style="bottom: calc(50% - 5px)"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Panel -->
+      <div id="mobile-menu" class="md:hidden max-h-0 opacity-0 overflow-hidden transition-all duration-300" role="menu">
+        <div class="pb-6 pt-2 space-y-1">
+          <a href="#about" class="block py-3 px-2 text-text-secondary hover:text-text-primary text-base font-medium border-b border-border-subtle transition-colors duration-200" role="menuitem">About</a>
+          <a href="#services" class="block py-3 px-2 text-text-secondary hover:text-text-primary text-base font-medium border-b border-border-subtle transition-colors duration-200" role="menuitem">Services</a>
+          <a href="#insights" class="block py-3 px-2 text-text-secondary hover:text-text-primary text-base font-medium border-b border-border-subtle transition-colors duration-200" role="menuitem">Insights</a>
+          <a href="https://ig.me/m/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="block mt-4 bg-brand text-white text-center py-3 rounded-lg font-semibold text-base hover:bg-brand-light transition-colors duration-200" role="menuitem">Join Now</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==========================================
+       MAIN CONTENT
+       ========================================== -->
+  <main id="main">
+
+    <!-- ==========================================
+         HERO SECTION — Full-screen with background image
+         ========================================== -->
+    <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+
+      <!-- Background Image -->
+      <div class="absolute inset-0" aria-hidden="true">
+        <img src="./assets/images/hero-background.avif" alt="" class="w-full h-full object-cover" loading="eager">
+        <!-- Dark overlay layers -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/90 to-[#0a0a0a]/60"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/40"></div>
+      </div>
+
+      <!-- Ambient Gradient Accents -->
+      <div class="absolute inset-0" aria-hidden="true">
+        <div class="absolute inset-0" style="background: radial-gradient(ellipse at 70% 20%, rgba(234, 88, 12, 0.06) 0%, transparent 60%)"></div>
+      </div>
+
+      <!-- Floating Decorative Elements -->
+      <div class="absolute top-[15%] right-[10%] w-64 h-64 rounded-full border border-brand/10 animate-float opacity-20 hidden lg:block" aria-hidden="true"></div>
+      <div class="absolute top-[60%] right-[25%] w-32 h-32 rounded-full border border-brand/15 animate-float-slow opacity-15 hidden lg:block" aria-hidden="true"></div>
+      <div class="absolute top-[25%] left-[5%] w-20 h-20 rounded-full bg-brand/5 animate-pulse-glow hidden lg:block" aria-hidden="true"></div>
+
+      <!-- Hero Content -->
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+
+        <!-- Main Headline -->
+        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-6 animate-fade-in-up" style="animation-delay: 100ms">
+          <span class="text-gradient">Sustainable Fitness</span><br>
+          <span class="text-gradient-brand">Made Easy</span>
+        </h1>
+
+        <!-- Eyebrow -->
+        <p class="text-brand font-medium text-sm tracking-widest uppercase mb-6 animate-fade-in">
+          @JAOnlineCoaching
+        </p>
+
+        <!-- Sub-headline -->
+        <p class="text-text-secondary text-lg lg:text-xl leading-relaxed max-w-2xl mb-10 animate-fade-in-up" style="animation-delay: 200ms">
+          Bespoke, data-driven coaching designed around your schedule. Achieve lasting results without sacrificing your lifestyle.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style="animation-delay: 300ms">
+          <a href="https://ig.me/m/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-brand text-white px-8 py-4 rounded-xl font-semibold text-base hover:bg-brand-light transition-all duration-300 hover:shadow-xl hover:shadow-brand-glow/50 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-surface-primary">
+            Start Your Transformation
+            <i class="fa-solid fa-arrow-right ml-2"></i>
+          </a>
+          <a href="#services" class="inline-flex items-center justify-center border border-border-default text-text-primary px-8 py-4 rounded-xl font-semibold text-base hover:border-brand hover:text-brand transition-all duration-300 hover:bg-brand/5 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-surface-primary">
+            Explore Services
+          </a>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 text-text-tertiary text-sm animate-fade-in-up" style="animation-delay: 400ms">
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-brand"></i> Science-Backed</span>
+          <span class="hidden sm:block w-1 h-1 bg-text-tertiary rounded-full"></span>
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-brand"></i> Built for Busy Schedules</span>
+          <span class="hidden sm:block w-1 h-1 bg-text-tertiary rounded-full"></span>
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-chart-line text-brand"></i> Data-Driven Results</span>
+        </div>
+      </div>
+
+      <!-- Bottom Gradient Divider -->
+      <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/30 to-transparent" aria-hidden="true"></div>
+    </section>
+
+    <!-- ==========================================
+         ABOUT SECTION
+         ========================================== -->
+    <section id="about" class="py-20 lg:py-32 bg-surface-primary relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+
+          <!-- Text Column -->
+          <div class="scroll-animate">
+            <p class="text-brand font-medium text-sm tracking-widest uppercase mb-4">About JA Coaching</p>
+            <h2 class="text-3xl lg:text-5xl font-bold text-text-primary leading-tight tracking-tight mb-6">
+              Where Science Meets<br><span class="text-gradient-brand">Performance</span>
+            </h2>
+            <p class="text-text-secondary text-lg leading-relaxed mb-6">
+              JA Online Coaching was built on a simple premise: fitness should adapt to your life, not the other way around.
+            </p>
+            <p class="text-text-secondary text-lg leading-relaxed mb-8">
+              Every programme is bespoke; crafted from your data, your goals, and your schedule. No cookie-cutter plans. No guesswork. Just a systematic, evidence-based approach to lasting transformation.
+            </p>
+            <ul class="space-y-3 text-text-secondary">
+              <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand text-sm"></i> Certified personal training credentials</li>
+              <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand text-sm"></i> Data-driven programme design</li>
+              <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand text-sm"></i> Flexible scheduling for professionals</li>
+              <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand text-sm"></i> Ongoing accountability &amp; support</li>
+            </ul>
+          </div>
+
+          <!-- Right Column: Image + Stats -->
+          <div class="mt-12 lg:mt-0 scroll-animate" data-delay="150">
+            <!-- About Image -->
+            <div class="rounded-2xl overflow-hidden border border-border-subtle mb-6 relative group">
+              <img src="./assets/images/about.jpeg" alt="Athlete training with barbell in gym" class="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/60 to-transparent"></div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-surface-card border border-border-subtle rounded-2xl p-6 text-center hover:border-brand/30 transition-colors duration-300">
+                <div class="text-3xl lg:text-4xl font-extrabold text-brand mb-2" data-counter="100" data-suffix="%">0%</div>
+                <p class="text-text-secondary text-sm">Personalised Plans</p>
+              </div>
+              <div class="bg-surface-card border border-border-subtle rounded-2xl p-6 text-center hover:border-brand/30 transition-colors duration-300">
+                <div class="text-3xl lg:text-4xl font-extrabold text-text-primary mb-2">Next-Gen</div>
+                <p class="text-text-secondary text-sm">Coaching</p>
+              </div>
+              <div class="bg-surface-card border border-border-subtle rounded-2xl p-6 text-center hover:border-brand/30 transition-colors duration-300">
+                <div class="text-3xl lg:text-4xl font-extrabold text-text-primary mb-2">24/7</div>
+                <p class="text-text-secondary text-sm">Coach Access</p>
+              </div>
+              <div class="bg-surface-card border border-border-subtle rounded-2xl p-6 text-center hover:border-brand/30 transition-colors duration-300">
+                <div class="text-3xl lg:text-4xl font-extrabold text-brand mb-2">5<span class="text-lg font-bold">&#9733;</span></div>
+                <p class="text-text-secondary text-sm">Client Experience</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SERVICES SECTION
+         ========================================== -->
+    <section id="services" class="py-20 lg:py-32 bg-surface-secondary relative">
+      <!-- Top divider -->
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border-subtle to-transparent" aria-hidden="true"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center mb-16 scroll-animate">
+          <p class="text-brand font-medium text-sm tracking-widest uppercase mb-4">What We Offer</p>
+          <h2 class="text-3xl lg:text-5xl font-bold text-text-primary leading-tight tracking-tight mb-6">
+            Programmes Built<br>Around <span class="text-gradient-brand">You</span>
+          </h2>
+          <p class="text-text-secondary text-lg max-w-2xl mx-auto leading-relaxed">
+            Three tiers of coaching, each designed to meet you where you are and take you where you want to go.
+          </p>
+        </div>
+
+        <!-- Services Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+          <!-- Card 1: VIP 1:1 Coaching -->
+          <article class="group relative bg-surface-card border border-border-subtle rounded-2xl p-8 hover:border-brand/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-glow/10 scroll-animate">
+            <!-- "Most Popular" Badge -->
+            <div class="absolute -top-3 left-6 bg-brand text-white text-xs font-semibold px-3 py-1 rounded-full">
+              Most Popular
+            </div>
+
+            <!-- Icon -->
+            <div class="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand/20 transition-colors duration-300">
+              <i class="fa-solid fa-crown text-brand text-xl"></i>
+            </div>
+
+            <h3 class="text-xl font-semibold text-text-primary mb-3">VIP 1:1 Coaching</h3>
+            <p class="text-text-secondary leading-relaxed mb-6">
+              Fully personalised training and nutrition programming with direct coach access, weekly check-ins, and real-time plan adjustments.
+            </p>
+
+            <ul class="space-y-2.5 text-text-secondary text-sm mb-8">
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-brand mt-0.5 text-xs"></i>
+                <span>Custom training programme</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-brand mt-0.5 text-xs"></i>
+                <span>Tailored nutrition plan</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-brand mt-0.5 text-xs"></i>
+                <span>Weekly check-ins</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-brand mt-0.5 text-xs"></i>
+                <span>24/7 support</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-brand mt-0.5 text-xs"></i>
+                <span>Monthly progress analysis</span>
+              </li>
+            </ul>
+
+            <a href="https://ig.me/m/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-brand font-semibold text-sm hover:underline transition-all duration-200">
+              Get Started <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+            </a>
+          </article>
+
+          <!-- Card 2: Hybrid Plan -->
+          <article class="group relative bg-surface-card border border-border-subtle rounded-2xl p-8 hover:border-brand/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-glow/10 scroll-animate" data-delay="100">
+            <div class="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand/20 transition-colors duration-300">
+              <i class="fa-solid fa-bolt text-brand text-xl"></i>
+            </div>
+
+            <h3 class="text-xl font-semibold text-text-primary mb-3">Hybrid Plan</h3>
+            <p class="text-text-secondary leading-relaxed mb-6">
+              The perfect balance of guided coaching and independent training. Structured programming with bi-weekly check-ins to keep you on track.
+            </p>
+
+            <ul class="space-y-2.5 text-text-secondary text-sm mb-8">
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-brand mt-0.5 text-xs"></i>
+                <span>Structured training programme</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-brand mt-0.5 text-xs"></i>
+                <span>Nutritional guidance</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-brand mt-0.5 text-xs"></i>
+                <span>Bi-weekly check-ins</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-brand mt-0.5 text-xs"></i>
+                <span>Programme adjustments</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-brand mt-0.5 text-xs"></i>
+                <span>Email support</span>
+              </li>
+            </ul>
+
+            <a href="https://ig.me/m/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-brand font-semibold text-sm hover:underline transition-all duration-200">
+              Get Started <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+            </a>
+          </article>
+
+          <!-- Card 3: Nutrition Guide -->
+          <article class="group relative bg-surface-card border border-border-subtle rounded-2xl p-8 hover:border-brand/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-glow/10 scroll-animate" data-delay="200">
+            <div class="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand/20 transition-colors duration-300">
+              <i class="fa-solid fa-utensils text-brand text-xl"></i>
+            </div>
+
+            <h3 class="text-xl font-semibold text-text-primary mb-3">Nutrition Guide</h3>
+            <p class="text-text-secondary leading-relaxed mb-6">
+              A comprehensive, personalised nutrition strategy built around your lifestyle, preferences, and performance goals.
+            </p>
+
+            <ul class="space-y-2.5 text-text-secondary text-sm mb-8">
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-brand mt-0.5 text-xs"></i>
+                <span>Macro-calculated meal plan</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-brand mt-0.5 text-xs"></i>
+                <span>Supplement recommendations</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-brand mt-0.5 text-xs"></i>
+                <span>Recipe library access</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-brand mt-0.5 text-xs"></i>
+                <span>Flexible dieting framework</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fa-solid fa-check text-brand mt-0.5 text-xs"></i>
+                <span>Eating out guide</span>
+              </li>
+            </ul>
+
+            <a href="https://ig.me/m/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-brand font-semibold text-sm hover:underline transition-all duration-200">
+              Get Started <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+            </a>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Bottom divider -->
+      <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border-subtle to-transparent" aria-hidden="true"></div>
+    </section>
+
+    <!-- ==========================================
+         BLOG / INSIGHTS SECTION
+         ========================================== -->
+    <section id="insights" class="py-20 lg:py-32 bg-surface-primary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-16 scroll-animate">
+          <div>
+            <p class="text-brand font-medium text-sm tracking-widest uppercase mb-4">Insights</p>
+            <h2 class="text-3xl lg:text-5xl font-bold text-text-primary leading-tight tracking-tight">
+              From the <span class="text-gradient-brand">Blog</span>
+            </h2>
+          </div>
+          <a href="https://substack.com/@jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="text-brand font-semibold text-sm mt-4 sm:mt-0 hover:underline inline-flex items-center gap-1.5">
+            View All Articles <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Blog Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+          <!-- Blog Card 1 — Training -->
+          <article class="group scroll-animate">
+            <a href="https://substack.com/@jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="block">
+              <div class="aspect-video rounded-xl mb-4 overflow-hidden border border-border-subtle group-hover:border-brand/30 transition-all duration-300 relative">
+                <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=600&q=80&fit=crop&auto=format" alt="Person performing barbell exercise" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/40 to-transparent"></div>
+              </div>
+              <span class="text-brand text-xs font-semibold tracking-widest uppercase">Training</span>
+              <h3 class="text-lg font-semibold text-text-primary mt-2 mb-2 group-hover:text-brand transition-colors duration-200 leading-snug">
+                Why Progressive Overload Is Non-Negotiable
+              </h3>
+              <p class="text-text-secondary text-sm leading-relaxed line-clamp-2">
+                The single most important principle for muscle growth and strength gains, explained simply.
+              </p>
+              <div class="flex items-center gap-3 mt-4 text-text-tertiary text-xs">
+                <span>Jan 2026</span>
+                <span class="w-1 h-1 bg-text-tertiary rounded-full"></span>
+                <span>5 min read</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- Blog Card 2 — Nutrition -->
+          <article class="group scroll-animate" data-delay="100">
+            <a href="https://substack.com/@jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="block">
+              <div class="aspect-video rounded-xl mb-4 overflow-hidden border border-border-subtle group-hover:border-brand/30 transition-all duration-300 relative">
+                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80&fit=crop&auto=format" alt="Healthy meal preparation with fresh ingredients" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/40 to-transparent"></div>
+              </div>
+              <span class="text-brand text-xs font-semibold tracking-widest uppercase">Nutrition</span>
+              <h3 class="text-lg font-semibold text-text-primary mt-2 mb-2 group-hover:text-brand transition-colors duration-200 leading-snug">
+                Meal Prep Strategies for Busy Professionals
+              </h3>
+              <p class="text-text-secondary text-sm leading-relaxed line-clamp-2">
+                Practical nutrition strategies that fit into a packed schedule without compromising your goals.
+              </p>
+              <div class="flex items-center gap-3 mt-4 text-text-tertiary text-xs">
+                <span>Jan 2026</span>
+                <span class="w-1 h-1 bg-text-tertiary rounded-full"></span>
+                <span>4 min read</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- Blog Card 3 — Mindset -->
+          <article class="group scroll-animate" data-delay="200">
+            <a href="https://substack.com/@jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="block">
+              <div class="aspect-video rounded-xl mb-4 overflow-hidden border border-border-subtle group-hover:border-brand/30 transition-all duration-300 relative">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80&fit=crop&auto=format" alt="Person in focused yoga pose representing mindset and discipline" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/40 to-transparent"></div>
+              </div>
+              <span class="text-brand text-xs font-semibold tracking-widest uppercase">Mindset</span>
+              <h3 class="text-lg font-semibold text-text-primary mt-2 mb-2 group-hover:text-brand transition-colors duration-200 leading-snug">
+                The Psychology of Consistency
+              </h3>
+              <p class="text-text-secondary text-sm leading-relaxed line-clamp-2">
+                How to build habits that stick when willpower alone isn't enough to sustain your fitness journey.
+              </p>
+              <div class="flex items-center gap-3 mt-4 text-text-tertiary text-xs">
+                <span>Feb 2026</span>
+                <span class="w-1 h-1 bg-text-tertiary rounded-full"></span>
+                <span>6 min read</span>
+              </div>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SOCIAL PROOF SECTION
+         ========================================== -->
+    <section id="social" class="py-20 lg:py-32 bg-surface-secondary relative">
+      <!-- Top divider -->
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border-subtle to-transparent" aria-hidden="true"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center mb-16 scroll-animate">
+          <p class="text-brand font-medium text-sm tracking-widest uppercase mb-4">Community</p>
+          <h2 class="text-3xl lg:text-5xl font-bold text-text-primary leading-tight tracking-tight">
+            Join the <span class="text-gradient-brand">Movement</span>
+          </h2>
+        </div>
+
+        <!-- Testimonial Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 scroll-animate">
+
+          <!-- Testimonial 1 -->
+          <blockquote class="bg-surface-card/50 backdrop-blur-sm border border-border-subtle rounded-2xl p-8 hover:border-brand/20 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex items-center gap-1 mb-4">
+              <i class="fa-solid fa-star text-brand text-sm"></i>
+              <i class="fa-solid fa-star text-brand text-sm"></i>
+              <i class="fa-solid fa-star text-brand text-sm"></i>
+              <i class="fa-solid fa-star text-brand text-sm"></i>
+              <i class="fa-solid fa-star text-brand text-sm"></i>
+            </div>
+            <p class="text-text-secondary leading-relaxed mb-6 italic">
+              &ldquo;The coaching approach is exactly what I needed to balance fitness with my career. Every session is tailored to my schedule and goals.&rdquo;
+            </p>
+            <footer class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-brand/20 rounded-full flex items-center justify-center">
+                <span class="text-brand font-semibold text-sm">JD</span>
+              </div>
+              <div>
+                <p class="text-text-primary font-semibold text-sm">James D.</p>
+                <p class="text-text-tertiary text-xs">Finance Executive</p>
+              </div>
+            </footer>
+          </blockquote>
+
+          <!-- Testimonial 2 -->
+          <blockquote class="bg-surface-card/50 backdrop-blur-sm border border-border-subtle rounded-2xl p-8 hover:border-brand/20 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex items-center gap-1 mb-4">
+              <i class="fa-solid fa-star text-brand text-sm"></i>
+              <i class="fa-solid fa-star text-brand text-sm"></i>
+              <i class="fa-solid fa-star text-brand text-sm"></i>
+              <i class="fa-solid fa-star text-brand text-sm"></i>
+              <i class="fa-solid fa-star text-brand text-sm"></i>
+            </div>
+            <p class="text-text-secondary leading-relaxed mb-6 italic">
+              &ldquo;I&rsquo;ve tried other coaches before, but JA&rsquo;s data-driven approach and genuine accountability made all the difference. Real results, finally.&rdquo;
+            </p>
+            <footer class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-brand/20 rounded-full flex items-center justify-center">
+                <span class="text-brand font-semibold text-sm">SR</span>
+              </div>
+              <div>
+                <p class="text-text-primary font-semibold text-sm">Sarah R.</p>
+                <p class="text-text-tertiary text-xs">School Teacher</p>
+              </div>
+            </footer>
+          </blockquote>
+
+          <!-- Testimonial 3 -->
+          <blockquote class="bg-surface-card/50 backdrop-blur-sm border border-border-subtle rounded-2xl p-8 hover:border-brand/20 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex items-center gap-1 mb-4">
+              <i class="fa-solid fa-star text-brand text-sm"></i>
+              <i class="fa-solid fa-star text-brand text-sm"></i>
+              <i class="fa-solid fa-star text-brand text-sm"></i>
+              <i class="fa-solid fa-star text-brand text-sm"></i>
+              <i class="fa-solid fa-star text-brand text-sm"></i>
+            </div>
+            <p class="text-text-secondary leading-relaxed mb-6 italic">
+              &ldquo;As a business owner, time is everything. JA built a programme that fits into 45-minute windows and still delivers serious progress.&rdquo;
+            </p>
+            <footer class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-brand/20 rounded-full flex items-center justify-center">
+                <span class="text-brand font-semibold text-sm">MK</span>
+              </div>
+              <div>
+                <p class="text-text-primary font-semibold text-sm">Mark K.</p>
+                <p class="text-text-tertiary text-xs">Business Owner</p>
+              </div>
+            </footer>
+          </blockquote>
+
+        </div>
+
+        <!-- Instagram Feed Grid -->
+        <div class="text-center scroll-animate">
+          <a href="https://www.instagram.com/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-brand font-semibold mb-8 hover:underline text-lg">
+            <i class="fa-brands fa-instagram text-2xl"></i>
+            @jaonlinecoaching
+          </a>
+
+          <!-- Instagram Grid with Unsplash fitness imagery as placeholders -->
+          <div id="instagram-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2">
+            <a href="https://www.instagram.com/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="aspect-square rounded-lg overflow-hidden border border-border-subtle hover:border-brand/30 transition-all duration-300 relative group" aria-label="View Instagram post">
+              <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=300&q=80&fit=crop&auto=format" alt="Fitness content" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                <i class="fa-brands fa-instagram text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="aspect-square rounded-lg overflow-hidden border border-border-subtle hover:border-brand/30 transition-all duration-300 relative group" aria-label="View Instagram post">
+              <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=300&q=80&fit=crop&auto=format" alt="Fitness content" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                <i class="fa-brands fa-instagram text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="aspect-square rounded-lg overflow-hidden border border-border-subtle hover:border-brand/30 transition-all duration-300 relative group" aria-label="View Instagram post">
+              <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=300&q=80&fit=crop&auto=format" alt="Fitness content" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                <i class="fa-brands fa-instagram text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="aspect-square rounded-lg overflow-hidden border border-border-subtle hover:border-brand/30 transition-all duration-300 relative group" aria-label="View Instagram post">
+              <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=300&q=80&fit=crop&auto=format" alt="Fitness content" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                <i class="fa-brands fa-instagram text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="aspect-square rounded-lg overflow-hidden border border-border-subtle hover:border-brand/30 transition-all duration-300 relative group" aria-label="View Instagram post">
+              <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=300&q=80&fit=crop&auto=format" alt="Fitness content" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                <i class="fa-brands fa-instagram text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="aspect-square rounded-lg overflow-hidden border border-border-subtle hover:border-brand/30 transition-all duration-300 relative group" aria-label="View Instagram post">
+              <img src="https://images.unsplash.com/photo-1550345332-09e3ac987658?w=300&q=80&fit=crop&auto=format" alt="Fitness content" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                <i class="fa-brands fa-instagram text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom divider -->
+      <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border-subtle to-transparent" aria-hidden="true"></div>
+    </section>
+
+    <!-- ==========================================
+         CTA BANNER SECTION
+         ========================================== -->
+    <section class="py-20 lg:py-28 relative overflow-hidden bg-surface-primary">
+      <!-- Ambient Background -->
+      <div class="absolute inset-0 bg-gradient-to-r from-brand/10 via-brand/5 to-transparent" aria-hidden="true"></div>
+      <div class="absolute inset-0 bg-surface-primary/80" aria-hidden="true"></div>
+
+      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center scroll-animate">
+        <h2 class="text-3xl lg:text-5xl font-bold text-text-primary leading-tight tracking-tight mb-6">
+          Ready to <span class="text-gradient-brand">Transform?</span>
+        </h2>
+        <p class="text-text-secondary text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+          Take the first step toward sustainable fitness. Your bespoke programme starts with a single conversation.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://ig.me/m/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-brand text-white px-8 py-4 rounded-xl font-semibold text-base hover:bg-brand-light transition-all duration-300 hover:shadow-xl hover:shadow-brand-glow/50 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-surface-primary">
+            <i class="fa-brands fa-instagram mr-2"></i>
+            Message Us on Instagram
+          </a>
+          <a href="https://www.instagram.com/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center border border-border-default text-text-primary px-8 py-4 rounded-xl font-semibold text-base hover:border-brand hover:text-brand transition-all duration-300 hover:bg-brand/5 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-surface-primary">
+            Follow @jaonlinecoaching
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer id="contact" class="bg-surface-primary border-t border-border-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Upper Footer -->
+      <div class="py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+
+        <!-- Brand Column -->
+        <div>
+          <a href="#" class="inline-block mb-4" aria-label="JA Online Coaching — Home">
+            <div class="flex flex-col leading-none">
+              <span class="text-2xl font-extrabold tracking-tight"><span class="text-gray-500">J</span><span class="text-white">A COACHING</span></span>
+              <span class="text-[8px] font-medium tracking-[0.2em] uppercase text-text-tertiary mt-1">Just Adapt | Find A Way</span>
+            </div>
+          </a>
+          <p class="text-text-secondary text-sm leading-relaxed max-w-xs mt-2">
+            Bespoke fitness coaching for those who demand results without compromise.
+          </p>
+          <!-- Social Links -->
+          <div class="flex gap-3 mt-6">
+            <a href="https://ig.me/m/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-surface-card border border-border-subtle rounded-lg flex items-center justify-center text-text-secondary hover:text-brand hover:border-brand/30 transition-all duration-200" aria-label="Message JA Online Coaching on Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://substack.com/@jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-surface-card border border-border-subtle rounded-lg flex items-center justify-center text-text-secondary hover:text-brand hover:border-brand/30 transition-all duration-200" aria-label="Read JA Online Coaching on Substack">
+              <i class="fa-solid fa-newspaper"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links Column -->
+        <div>
+          <h4 class="text-text-primary font-semibold text-sm uppercase tracking-widest mb-6">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="#about" class="text-text-secondary text-sm hover:text-brand transition-colors duration-200">About</a></li>
+            <li><a href="#services" class="text-text-secondary text-sm hover:text-brand transition-colors duration-200">Services</a></li>
+            <li><a href="#insights" class="text-text-secondary text-sm hover:text-brand transition-colors duration-200">Insights</a></li>
+            <li><a href="https://www.instagram.com/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="text-text-secondary text-sm hover:text-brand transition-colors duration-200">Instagram</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Column -->
+        <div>
+          <h4 class="text-text-primary font-semibold text-sm uppercase tracking-widest mb-6">Get In Touch</h4>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-text-secondary text-sm">
+              <i class="fa-solid fa-envelope text-brand text-xs"></i>
+              <a href="mailto:jaonlinecoaching@gmail.com" class="hover:text-brand transition-colors duration-200">jaonlinecoaching@gmail.com</a>
+            </li>
+            <li class="flex items-center gap-3 text-text-secondary text-sm">
+              <i class="fa-brands fa-instagram text-brand text-xs"></i>
+              <a href="https://ig.me/m/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="hover:text-brand transition-colors duration-200">DM @jaonlinecoaching</a>
+            </li>
+          </ul>
+          <!-- DM Button -->
+          <a href="https://ig.me/m/jaonlinecoaching" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-6 bg-brand text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-brand-light transition-all duration-200 hover:shadow-lg hover:shadow-brand-glow/50">
+            <i class="fa-brands fa-instagram"></i>
+            Message Us
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="py-6 border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-text-tertiary text-xs">&copy; 2026 JA Online Coaching. All rights reserved.</p>
+        <p class="text-text-tertiary text-xs">Just Adapt | Find A Way.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       BACK TO TOP BUTTON
+       ========================================== -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-brand text-white rounded-full shadow-lg shadow-brand-glow/30 flex items-center justify-center opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:bg-brand-light hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-surface-primary cursor-pointer" aria-label="Scroll to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- ==========================================
+       JAVASCRIPT
+       ========================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /* ==========================================
+         1. Navbar Scroll Effect (Transparent → Glass)
+         ========================================== */
+      const navbar = document.getElementById('navbar');
+
+      function handleNavbarScroll() {
+        if (window.scrollY > 50) {
+          navbar.classList.add('backdrop-blur-xl', 'shadow-lg');
+          navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.8)';
+          navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.06)';
+        } else {
+          navbar.classList.remove('backdrop-blur-xl', 'shadow-lg');
+          navbar.style.backgroundColor = 'transparent';
+          navbar.style.borderBottom = 'none';
+        }
+      }
+
+      window.addEventListener('scroll', handleNavbarScroll, { passive: true });
+      handleNavbarScroll();
+
+      /* ==========================================
+         2. Mobile Menu Toggle
+         ========================================== */
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuBars = menuToggle.querySelectorAll('span');
+
+      function closeMobileMenu() {
+        mobileMenu.classList.remove('max-h-96', 'opacity-100');
+        mobileMenu.classList.add('max-h-0', 'opacity-0');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuBars[0].style.transform = 'none';
+        menuBars[1].style.opacity = '1';
+        menuBars[2].style.transform = 'none';
+      }
+
+      function openMobileMenu() {
+        mobileMenu.classList.remove('max-h-0', 'opacity-0');
+        mobileMenu.classList.add('max-h-96', 'opacity-100');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        menuBars[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+        menuBars[1].style.opacity = '0';
+        menuBars[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+      }
+
+      menuToggle.addEventListener('click', () => {
+        const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+        isOpen ? closeMobileMenu() : openMobileMenu();
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      /* ==========================================
+         3. Scroll Reveal Animations (Intersection Observer)
+         ========================================== */
+      const scrollElements = document.querySelectorAll('.scroll-animate');
+
+      const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const delay = parseInt(entry.target.dataset.delay) || 0;
+            setTimeout(() => {
+              entry.target.classList.add('is-visible');
+            }, delay);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -60px 0px',
+        threshold: 0.1
+      });
+
+      scrollElements.forEach(el => scrollObserver.observe(el));
+
+      /* ==========================================
+         4. Back to Top Button
+         ========================================== */
+      const backToTop = document.getElementById('back-to-top');
+
+      function handleBackToTop() {
+        if (window.scrollY > 500) {
+          backToTop.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+          backToTop.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        } else {
+          backToTop.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+          backToTop.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+        }
+      }
+
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      window.addEventListener('scroll', handleBackToTop, { passive: true });
+
+      /* ==========================================
+         5. Active Nav Link Highlighting
+         ========================================== */
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      const activeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active', 'text-text-primary');
+                link.classList.remove('text-text-secondary');
+              } else {
+                link.classList.remove('active', 'text-text-primary');
+                link.classList.add('text-text-secondary');
+              }
+            });
+          }
+        });
+      }, { rootMargin: '-40% 0px -60% 0px', threshold: 0 });
+
+      sections.forEach(section => activeObserver.observe(section));
+
+      /* ==========================================
+         6. Counter Animation (Stats)
+         ========================================== */
+      function animateCounter(element) {
+        const target = parseInt(element.dataset.counter);
+        const suffix = element.dataset.suffix || '';
+        const duration = 1500;
+        const start = performance.now();
+
+        function update(currentTime) {
+          const elapsed = currentTime - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = Math.floor(eased * target);
+          element.textContent = current + suffix;
+
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          }
+        }
+
+        requestAnimationFrame(update);
+      }
+
+      const counterElements = document.querySelectorAll('[data-counter]');
+      const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counterElements.forEach(el => counterObserver.observe(el));
+
+      /* ==========================================
+         7. Instagram Feed Loader (Optional — for GitHub Actions setup)
+         Reads instagram-posts.json and renders real posts into the grid.
+         To enable: set up the GitHub Actions workflow and uncomment below.
+         ========================================== */
+      async function loadInstagramFeed() {
+        try {
+          const response = await fetch('./instagram-posts.json');
+          if (!response.ok) return;
+          const posts = await response.json();
+          const grid = document.getElementById('instagram-grid');
+          if (!grid || !posts.length) return;
+
+          grid.innerHTML = posts.slice(0, 6).map(post => `
+            <a href="${post.permalink}" target="_blank" rel="noopener noreferrer"
+               class="aspect-square rounded-lg overflow-hidden border border-border-subtle hover:border-brand/30 transition-all duration-300 relative group"
+               aria-label="View Instagram post">
+              <img src="${post.media_url}" alt="${(post.caption || '').substring(0, 80)}"
+                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                <i class="fa-brands fa-instagram text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+              </div>
+            </a>
+          `).join('');
+        } catch (e) {
+          // Silently fail — fallback to static placeholders
+        }
+      }
+      loadInstagramFeed();
+
+    });
+  </script>
+
+</body>
+</html>

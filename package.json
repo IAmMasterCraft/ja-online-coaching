@@ -1,0 +1,14 @@
+{
+  "name": "jaot-site-utils",
+  "version": "1.0.0",
+  "description": "Utilities for JA Online Coaching site (scrapers, generators)",
+  "main": "instagram-scrap.js",
+  "scripts": {
+    "scrape:instagram": "node instagram-scrap.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "playwright": "^1.40.0"
+  }
+}
