@@ -45,9 +45,25 @@ jobs:
         run: |
           node instagram-scrap.js "$HANDLE" "$MAX_POSTS"
 
+      - name: Update version.json (cache-busting)
+        run: |
+          node -e "
+          const fs = require('fs');
+          const buildTime = Date.now();
+          const lastUpdated = new Date().toISOString();
+          const version = {
+            version: '1.0.0',
+            buildTime: buildTime,
+            lastUpdated: lastUpdated,
+            sha: '${{ github.sha }}'.substring(0, 7)
+          };
+          fs.writeFileSync('version.json', JSON.stringify(version, null, 2));
+          console.log('Updated version.json with buildTime:', buildTime);
+          "
+
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add instagram-posts.json assets/instagram || true
-          git diff --staged --quiet || (git commit -m "chore: update Instagram feed on website with bot from MasterCraft[skip ci]" && git push)
+          git add instagram-posts.json assets/instagram version.json || true
+          git diff --staged --quiet || (git commit -m "chore: update Instagram feed and cache-busting version [skip ci]" && git push)

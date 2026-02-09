@@ -24,6 +24,7 @@ coverage/
 
 # Playwright
 playwright-report/
+debug/
 
 # macOS resource forks
 ._*
@@ -34,3 +35,7 @@ logs/
 
 # Ignore local secret files
 secrets.json
+
+# Cache-related (built by local dev, not needed in repo)
+.cache/
+cache/

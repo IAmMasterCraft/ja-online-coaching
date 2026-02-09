@@ -30,10 +30,10 @@ jaot/
 ├── .github/
 │   └── workflows/
 │       └── instagram-feed.yml              # Daily Instagram post fetcher
-└── assets/                                 # (Create when ready)
+└── assets/                                
     ├── images/
     │   ├── hero-bg.webp                    # Custom hero background
-    │   └── og-image.jpg                    # Social share image (1200x630)
+    │   └── og-image.jpg                    
     └── favicon/
         ├── favicon.ico
         └── apple-touch-icon.png
@@ -54,21 +54,6 @@ No build pipeline. No `node_modules`. Pure HTML/CSS/JS.
 ---
 
 ## Customisation
-
-### Replacing Images
-
-All images currently use [Unsplash](https://unsplash.com) CDN URLs. To use your own:
-
-1. **Hero background** — Replace the `<img>` src in the hero section (line ~289)
-2. **About section image** — Replace the `<img>` src in the about section (line ~380)
-3. **Blog card images** — Replace the 3 `<img>` srcs in the insights section (lines ~588, ~610, ~632)
-4. **Instagram grid** — Replace the 6 `<img>` srcs in the social section (lines ~771-805)
-
-Recommended image sizes:
-- Hero: 1920px wide, WEBP format
-- About: 800px wide
-- Blog cards: 600px wide
-- Instagram tiles: 300px square
 
 ### Changing Colors
 
@@ -92,38 +77,6 @@ All text content is directly in the HTML. Search for section comments like `<!--
 
 ---
 
-## Instagram Feed Integration
-
-Three options for displaying real Instagram posts:
-
-### Option A: Elfsight Widget (Easiest)
-
-1. Go to [elfsight.com](https://elfsight.com/instagram-feed-instashow/)
-2. Create a free widget for `@jaonlinecoaching`
-3. Copy the embed code
-4. Replace the Instagram grid `<div id="instagram-grid">` in `index.html`
-
-### Option B: GitHub Actions (Self-hosted)
-
-Automatically fetches posts daily and commits to `instagram-posts.json`.
-
-**Setup:**
-
-1. Create a [Facebook Developer](https://developers.facebook.com) account
-2. Create an app with Instagram Basic Display API
-3. Generate a long-lived access token
-4. Add `INSTAGRAM_ACCESS_TOKEN` to GitHub repo secrets
-5. In `index.html`, uncomment the `loadInstagramFeed()` function at the bottom of the `<script>` block (line ~1094)
-6. Push to GitHub — the workflow runs daily at 6 AM UTC
-
-The token auto-refreshes each run, so it stays valid indefinitely as long as the workflow runs at least once every 60 days.
-
-### Option C: Static Placeholders (Current)
-
-The grid currently shows Unsplash fitness imagery. Replace with screenshots of actual Instagram posts when ready.
-
----
-
 ## Deployment
 
 ### GitHub Pages
@@ -131,21 +84,8 @@ The grid currently shows Unsplash fitness imagery. Replace with screenshots of a
 1. Push to GitHub
 2. Go to Settings > Pages
 3. Set source to `main` branch, root folder
-4. Site will be live at `https://username.github.io/jaot/`
-
-### Netlify
-
-1. Connect your GitHub repo to [Netlify](https://netlify.com)
-2. Build command: (leave empty)
-3. Publish directory: `.`
-4. Deploy
-
-### Vercel
-
-1. Import repo at [Vercel](https://vercel.com)
-2. Framework preset: Other
-3. Output directory: `.`
-4. Deploy
+4. Site will be live at `https://username.github.io/ja-online-coaching/`
+5. Best bet is to setup a dedicated github account for jaoc
 
 ### Custom Domain
 
@@ -175,7 +115,7 @@ Add a `CNAME` file with your domain (e.g., `jaonlinecoaching.com`) and configure
 
 - **Instagram:** [@jaonlinecoaching](https://www.instagram.com/jaonlinecoaching)
 - **Substack:** [@jaonlinecoaching](https://substack.com/@jaonlinecoaching)
-- **Email:** hello@jaonlinecoaching.com
+- **Email:** jaonlinecoaching@gmail.com
 
 ---
 

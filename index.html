@@ -45,6 +45,11 @@
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
+  <!-- Cache Control Headers -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <!-- Tailwind CSS v4 (Browser CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
@@ -1074,13 +1079,27 @@
       counterElements.forEach(el => counterObserver.observe(el));
 
       /* ==========================================
-         7. Instagram Feed Loader (Optional — for GitHub Actions setup)
-         Reads instagram-posts.json and renders real posts into the grid.
-         To enable: set up the GitHub Actions workflow and uncomment below.
+         7. Instagram Feed Loader (with Cache-Busting)
+         Reads instagram-posts.json with cache-busting query param.
+         Cache is invalidated on each GitHub Actions run via version.json.
          ========================================== */
       async function loadInstagramFeed() {
         try {
-          const response = await fetch('./instagram-posts.json');
+          // Fetch version metadata to get latest build timestamp
+          let cacheBuster = '';
+          try {
+            const versionResponse = await fetch('./version.json');
+            if (versionResponse.ok) {
+              const version = await versionResponse.json();
+              cacheBuster = `?v=${version.buildTime}`;
+            }
+          } catch (e) {
+            // If version.json doesn't exist, use current timestamp
+            cacheBuster = `?t=${Date.now()}`;
+          }
+
+          // Fetch instagram-posts.json with cache-busting query string
+          const response = await fetch(`./instagram-posts.json${cacheBuster}`);
           if (!response.ok) return;
           const posts = await response.json();
           const grid = document.getElementById('instagram-grid');
@@ -1099,9 +1118,19 @@
           `).join('');
         } catch (e) {
           // Silently fail — fallback to static placeholders
+          console.debug('Instagram feed load failed:', e.message);
         }
       }
       loadInstagramFeed();
+
+      /* ==========================================
+         8. Service Worker Registration (Progressive Enhancement)
+         ========================================== */
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').catch(() => {
+          // Service worker registration failed; site still works fine
+        });
+      }
 
     });
   </script>
